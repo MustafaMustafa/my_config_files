@@ -1,3 +1,6 @@
+"Enable switching between buffers without having to save modifications
+set hidden
+
 "Enable syntax highlighting
 syntax on
 
@@ -49,3 +52,18 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
+
+" for code review purpose, see
+" http://vim.wikia.com/wiki/Review_code_effectively_using_quickfix
+function SavePosition()
+	  let g:file_name=expand("%:t")
+	  let g:line_number=line(".")
+	  let g:reviewer_initials="Mustafa" " Your initials
+endfunction
+
+function InsertComment()
+	 execute "normal o". g:file_name . ":" . g:line_number . ": " . g:reviewer_initials . " - "
+	 startinsert
+endfunction
+nmap ,sp :call SavePosition()<CR>
+nmap ,ic :call InsertComment()<CR>
