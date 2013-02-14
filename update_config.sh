@@ -2,12 +2,13 @@
 
 OPT0="--server"
 OPT1="--local"
+OPT2="--clone"
 
 # current implementation is stupid
 
 if [ -z "$1" ]; then 
 	echo "usage: $0 [OPTION]"
-	echo "OPTION are: $OPT0 or $OPT1"
+	echo "OPTION are: $OPT0, $OPT1, $OPT2"
 	exit
 elif [ "$1" = "$OPT0" ]; then
 	git status
@@ -26,6 +27,8 @@ elif [ "$1" = "$OPT1" ]; then
 	cp -p gitconfig ~/.gitconfig
 	cp -p astylerc ~/.astylerc
 	cp -p terminator_config ~/.config/terminator/config
+elif [ "$1" = "$OPT2" ]; then
+	git clone git@bitbucket.org:mmustafa/my_config_files.git
 else
 	exit
 fi
