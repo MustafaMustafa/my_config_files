@@ -19,6 +19,7 @@ elif [ "$1" = "$OPT0" ]; then
 	git commit -m "diff it :P"
 	git push
 elif [ "$1" = "$OPT1" ]; then
+	git clone git@bitbucket.org:mmustafa/my_config_files.git
 	cp -p vimrc ~/.vimrc
 	cp -p bashrc ~/.bashrc
 	cp -p gitconfig ~/.gitconfig
