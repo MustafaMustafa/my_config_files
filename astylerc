@@ -1,0 +1,15 @@
+# ROOT code formatting style
+--indent=spaces=3 # three spaces per indentation level
+--convert-tabs # convert tabs into spaces
+ 
+--style=allman
+ 
+--indent-switches # case block is indented wrt switch
+--indent-namespaces
+--indent-preprocessor # indent pp statements ending on '\'
+ 
+--pad-oper # space around operands
+--pad-header # add a space around () after if, while,...
+--unpad-paren # and remove all unwanted padding around parentheses
+ 
+--suffix=none # no backups - we have subversion
