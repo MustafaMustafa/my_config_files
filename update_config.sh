@@ -10,6 +10,7 @@ if [ -z "$1" ]; then
 	echo "OPTION are: $OPT0 or $OPT1"
 	exit
 elif [ "$1" = "$OPT0" ]; then
+	git status
 	cp -p ~/.vimrc vimrc
 	cp -p ~/.bashrc bashrc
 	cp -p ~/.gitconfig gitconfig
@@ -18,8 +19,9 @@ elif [ "$1" = "$OPT0" ]; then
 	git add * 
 	git commit -m "diff it :P"
 	git push
+	git status
 elif [ "$1" = "$OPT1" ]; then
-	git clone git@bitbucket.org:mmustafa/my_config_files.git
+	git status
 	cp -p vimrc ~/.vimrc
 	cp -p bashrc ~/.bashrc
 	cp -p gitconfig ~/.gitconfig
