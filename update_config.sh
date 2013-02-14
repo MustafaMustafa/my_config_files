@@ -19,7 +19,6 @@ elif [ "$1" = "$OPT0" ]; then
 	git add * 
 	git commit -m "diff it :P"
 	git push
-	git status
 elif [ "$1" = "$OPT1" ]; then
 	git status
 	cp -p vimrc ~/.vimrc
