@@ -67,3 +67,6 @@ function InsertComment()
 endfunction
 nmap ,sp :call SavePosition()<CR>
 nmap ,ic :call InsertComment()<CR>
+
+" highligh word under cursor
+" :autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/',  escape(expand('<cword>'), '/\'))
