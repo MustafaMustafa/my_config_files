@@ -11,7 +11,7 @@ if [ -z "$1" ]; then
 	exit
 elif [ "$1" = "$OPT0" ]; then
 	cp -p ~/.vimrc vimrc
-	cp -p ~/.bachrc bashrc
+	cp -p ~/.bashrc bashrc
 	cp -p ~/.gitconfig gitconfig
 	cp -p ~/.astylerc astylerc
 	cp -p ~/.config/terminator/config terminator_config
@@ -20,7 +20,7 @@ elif [ "$1" = "$OPT0" ]; then
 	git push
 elif [ "$1" = "$OPT1" ]; then
 	cp -p vimrc ~/.vimrc
-	cp -p bashrc ~/.bachrc
+	cp -p bashrc ~/.bashrc
 	cp -p gitconfig ~/.gitconfig
 	cp -p astylerc ~/.astylerc
 	cp -p terminator_config ~/.config/terminator/config
