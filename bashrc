@@ -99,6 +99,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
+alias mktd='mkdir ~/research/work/`date +'%Y-%m-%d'`'
+alias td='cd ~/research/work/`date +'%Y-%m-%d'`'
 alias rcf='ssh -AXY mstftsm@rssh.rhic.bnl.gov'
 alias lab='ssh -AXY mustafa@star1.physics.purdue.edu'
 alias bnl='ssh -AXY mmustafa@ssh.bnl.gov'
