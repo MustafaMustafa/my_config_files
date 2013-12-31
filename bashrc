@@ -105,6 +105,9 @@ alias rcf='ssh -AXY mstftsm@rssh.rhic.bnl.gov'
 alias lab='ssh -AXY mustafa@star1.physics.purdue.edu'
 alias bnl='ssh -AXY mmustafa@ssh.bnl.gov'
 alias pdsf='ssh -AXY mustafa@pdsf.nersc.gov'
+alias pdsf6='ssh -AXY mustafa@pdsf6.nersc.gov'
+alias pdsf7='ssh -AXY mustafa@pdsf7.nersc.gov'
+alias pdsf8='ssh -AXY mustafa@pdsf8.nersc.gov'
 alias rm='rm -i'
 alias l='ls -lrht'
 alias la='ls -lrta'
@@ -112,11 +115,12 @@ rcf='mstftsm@rftpexp.rhic.bnl.gov'
 pdsf='mustafa@pdsf.nersc.gov'
 lab='mustafa@star1.physics.purdue.edu'
 
-export CVSROOT=:pserver:mustafa@localhost:/afs/rhic.bnl.gov/star/packages/repository/offline/users/mustafa
-export CVS_RSH=scp
-
 CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/home/mustafa/Research/root/include
 export CPLUS_INCLUDE_PATH
+
+export ROOTSYS=/home/mustafa/research/root
+export LD_LIBRARY_PATH=$ROOTSYS/lib:$LD_LIBRARY_PATH
+export PYTHONPATH=$ROOTSYS/lib:$PYTHONPATH
 
 alias scp='scp -p'
 alias cp='cp -p'

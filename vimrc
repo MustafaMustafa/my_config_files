@@ -31,42 +31,42 @@ set nospell
 set nocp
 filetype plugin on
 
-"C++ Autocompletion
-" configure tags - add additional tags here or comment out not-used ones
-set tags+=~/.vim/tags/cpp
-set tags+=~/.vim/tags/gl
-"set tags+=~/.vim/tags/sdl
-"set tags+=~/.vim/tags/qt4
-" build tags of your own project with CTRL+F12
-map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+--------------------------------------------------------
 
-" OmniCppComplete
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-" automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
+" Indent Python in the Google way.
 
-" for code review purpose, see
-" http://vim.wikia.com/wiki/Review_code_effectively_using_quickfix
-function SavePosition()
-	  let g:file_name=expand("%:t")
-	  let g:line_number=line(".")
-	  let g:reviewer_initials="Mustafa" " Your initials
+setlocal indentexpr=GetGooglePythonIndent(v:lnum)
+
+let s:maxoff = 50 " maximum number of lines to look backwards.
+
+function GetGooglePythonIndent(lnum)
+
+  " Indent inside parens.
+  " Align with the open paren unless it is at the end of the line.
+  " E.g.
+  "   open_paren_not_at_EOL(100,
+  "                         (200,
+  "                          300),
+  "                         400)
+  "   open_paren_at_EOL(
+  "       100, 200, 300, 400)
+  call cursor(a:lnum, 1)
+  let [par_line, par_col] = searchpairpos('(\|{\|\[', '', ')\|}\|\]', 'bW',
+        \ "line('.') < " . (a:lnum - s:maxoff) . " ? dummy :"
+        \ . " synIDattr(synID(line('.'), col('.'), 1), 'name')"
+        \ . " =~ '\\(Comment\\|String\\)$'")
+  if par_line > 0
+    call cursor(par_line, 1)
+    if par_col != col("$") - 1
+      return par_col
+    endif
+  endif
+
+  " Delegate the rest to the original function.
+  return GetPythonIndent(a:lnum)
+
 endfunction
 
-function InsertComment()
-	 execute "normal o". g:file_name . ":" . g:line_number . ": " . g:reviewer_initials . " - "
-	 startinsert
-endfunction
-nmap ,sp :call SavePosition()<CR>
-nmap ,ic :call InsertComment()<CR>
-
-" highligh word under cursor
-" :autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/',  escape(expand('<cword>'), '/\'))
+let pyindent_nested_paren="&sw*2"
+let pyindent_open_paren="&sw*2"
+--------------------------------------------------------
