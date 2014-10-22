@@ -65,35 +65,19 @@ endif
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
+  " The following to are have Vim jump to the last position when
+  " reopening a file
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
   " Enable file type detection.
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
   filetype plugin indent on
 
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  " Also don't do it when the mark is in the first line, that is the default
-  " position when opening a file.
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
-  augroup END
-
 else
-
   set autoindent    " always set autoindenting on
-
 endif " has("autocmd")
 
 " Convenient command to see the difference between the current buffer and the
@@ -165,9 +149,9 @@ highlight EOLWS ctermbg=red guibg=red
 "nmap <silent> <Leader><space> :call <SID>StripTrailingWhitespace()<CR>
 nmap <Leader><space> :StripWhitespace<CR>
 
-map <leader>cc :botright cope<cr>
-map <leader>n :cn<cr>
-map <leader>p :cp<cr>
+" map <leader>cc :botright cope<cr>
+" map <leader>n :cn<cr>
+" map <leader>p :cp<cr>
 
 """"""""""""""""""""""""""""""
 " => Statusline
@@ -179,11 +163,6 @@ set laststatus=2
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
 
 
-function! CurDir()
-    let curdir = substitute(getcwd(), '/home/waleed/', "~/", "g")
-    return curdir
-endfunction
-
 function! HasPaste()
     if &paste
         return 'PASTE MODE  '
@@ -194,8 +173,6 @@ endfunction
 
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
 let g:Powerline_symbols = 'unicode'
-
-au BufNewFile,BufRead *.ejs set filetype=html
 
 autocmd QuickFixCmdPost *grep* cwindow
 au FileType python  set tabstop=4 shiftwidth=4 textwidth=140 softtabstop=4
@@ -229,3 +206,4 @@ let g:syntastic_javascript_checkers = ['jsxhint']
 
 "Enable switching between buffers without having to save modifications
 set hidden
+
