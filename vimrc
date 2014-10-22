@@ -20,6 +20,7 @@ Plugin 'EasyMotion'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rainbow_parentheses.vim'
+Plugin 'Solarized'
 " Plugin 'ntpeters/vim-better-whitespace'
 
 " tComment
@@ -204,3 +205,8 @@ let g:rbpt_colorpairs = [
 
 "Enable switching between buffers without having to save modifications
 set hidden
+
+" Solarized options
+syntax enable
+set background=dark
+colorscheme solarized
