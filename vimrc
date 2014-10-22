@@ -21,6 +21,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rainbow_parentheses.vim'
 Plugin 'Solarized'
+Plugin 'OmniCppComplete'
 " Plugin 'ntpeters/vim-better-whitespace'
 
 " tComment
@@ -217,3 +218,9 @@ function! EnhanceCppSyntax()
   hi def link cppFuncDef Special
 endfunction
 autocmd Syntax cpp call EnhanceCppSyntax()
+
+" C++ omnicmpletion
+au BufNewFile,BufRead,BufEnter *.cxx,*.h,*.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
+
+" recognize files as C++
+autocmd BufNewFile,BufReadPost *.h,*.cxx,*.cpp,*.hpp set filetype=cpp
