@@ -202,8 +202,5 @@ let g:rbpt_colorpairs = [
     \ ['red',         'firebrick3'],
     \ ]
 
-let g:syntastic_javascript_checkers = ['jsxhint']
-
 "Enable switching between buffers without having to save modifications
 set hidden
-
