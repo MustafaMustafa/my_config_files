@@ -15,7 +15,7 @@ elif [ "$1" = "$OPT0" ]; then
 	cp -p ~/.bashrc bashrc
 	cp -p ~/.gitconfig gitconfig
 	cp -p ~/.astylerc astylerc
-	cp -p ~/.config/terminator/config terminator_config
+	#cp -p ~/.config/terminator/config terminator_config
 	git status
 	git add * 
 	git commit -m "diff it :P"
@@ -26,7 +26,7 @@ elif [ "$1" = "$OPT1" ]; then
 	cp -p bashrc ~/.bashrc
 	cp -p gitconfig ~/.gitconfig
 	cp -p astylerc ~/.astylerc
-	cp -p terminator_config ~/.config/terminator/config
+	#cp -p terminator_config ~/.config/terminator/config
 elif [ "$1" = "$OPT2" ]; then
 	git clone git@bitbucket.org:mmustafa/my_config_files.git
 else

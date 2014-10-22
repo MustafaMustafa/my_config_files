@@ -105,18 +105,22 @@ alias rcf='ssh -AXY mstftsm@rssh.rhic.bnl.gov'
 alias lab='ssh -AXY mustafa@star1.physics.purdue.edu'
 alias bnl='ssh -AXY mmustafa@ssh.bnl.gov'
 alias pdsf='ssh -AXY mustafa@pdsf.nersc.gov'
+alias pdsf6='ssh -AXY mustafa@pdsf6.nersc.gov'
+alias pdsf7='ssh -AXY mustafa@pdsf7.nersc.gov'
+alias pdsf8='ssh -AXY mustafa@pdsf8.nersc.gov'
 alias rm='rm -i'
 alias l='ls -lrht'
 alias la='ls -lrta'
+alias ca='cd ~/research/npe/NPE/AuAu62GeV/analysis'
 rcf='mstftsm@rftpexp.rhic.bnl.gov'
 pdsf='mustafa@pdsf.nersc.gov'
 lab='mustafa@star1.physics.purdue.edu'
 
-export CVSROOT=:pserver:mustafa@localhost:/afs/rhic.bnl.gov/star/packages/repository/offline/users/mustafa
-export CVS_RSH=scp
+export PATH=$PATH:/home/mustafa/MATLAB/R2013b/bin
 
 CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/home/mustafa/Research/root/include
 export CPLUS_INCLUDE_PATH
+
 
 alias scp='scp -p'
 alias cp='cp -p'

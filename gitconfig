@@ -1,3 +1,7 @@
 [user]
 	name = Mustafa Mustafa
 	email = mr.m.mustafa@gmail.com
+[push]
+	default = matching
+[core]
+	editor = vim
