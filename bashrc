@@ -121,6 +121,8 @@ export PATH=$PATH:/home/mustafa/MATLAB/R2013b/bin
 CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/home/mustafa/Research/root/include
 export CPLUS_INCLUDE_PATH
 
+alias g11='g++ -W -Wall -Wextra -pedantic -std=c++11'
+
 
 alias scp='scp -p'
 alias cp='cp -p'

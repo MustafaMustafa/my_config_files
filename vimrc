@@ -5,8 +5,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
 
+Plugin 'tpope/vim-fugitive'
 Plugin 'repeat.vim'
 Plugin 'surround.vim'
 Plugin 'SuperTab'
@@ -224,3 +224,10 @@ au BufNewFile,BufRead,BufEnter *.cxx,*.h,*.cpp,*.hpp set omnifunc=omni#cpp#compl
 
 " recognize files as C++
 autocmd BufNewFile,BufReadPost *.h,*.cxx,*.cpp,*.hpp set filetype=cpp
+
+
+" C++11 Syntastic support
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+
+"map enter to escape
+:inoremap <CR> <Esc>
