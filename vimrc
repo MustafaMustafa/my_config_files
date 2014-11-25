@@ -20,8 +20,11 @@ Plugin 'EasyMotion'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rainbow_parentheses.vim'
-Plugin 'Solarized'
+Plugin 'Solarized' " color-scheme
 Plugin 'OmniCppComplete'
+Plugin 'godlygeek/tabular' " for markdown
+Plugin 'plasticboy/vim-markdown' " for markdown
+
 " Plugin 'ntpeters/vim-better-whitespace'
 
 " tComment
@@ -231,3 +234,10 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 "map enter to escape
 :inoremap <CR> <Esc>
+
+"markdown highlight options
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_math=1 " for latex math
+
+" spell checking for certain file extensions
+autocmd BufRead,BufNewFile *.md setlocal spell

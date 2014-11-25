@@ -122,9 +122,23 @@ CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/home/mustafa/Research/root/include
 export CPLUS_INCLUDE_PATH
 
 alias g11='g++ -W -Wall -Wextra -pedantic -std=c++11'
+alias g03='g++ -W -Wall -Wextra -pedantic'
 
 
 alias scp='scp -p'
 alias cp='cp -p'
 
 set -o vi
+
+# fold path names
+
+export MYPS='$(echo -n "${PWD/#$HOME/~}" | awk -F "/" '"'"'{
+if (length($0) > 14) { if (NF>4) print $1 "/" $2 "/.../" $(NF-1) "/" $NF;
+else if (NF>3) print $1 "/" $2 "/.../" $NF;
+else print $1 "/.../" $NF; }
+else print $0;}'"'"')'
+PS1='$(eval "echo ${MYPS}")$ '
+
+# create today's tasks list
+alias tskslst='cd /home/mustafa/personal-management/tasks-list'
+alias tsklst='cd /home/mustafa/personal-management/tasks-list; vim /home/mustafa/personal-management/tasks-list/`date +'%Y-%m-%d'`.md'
