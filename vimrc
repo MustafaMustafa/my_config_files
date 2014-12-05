@@ -183,14 +183,14 @@ let g:Powerline_symbols = 'unicode'
 autocmd QuickFixCmdPost *grep* cwindow
 au FileType python  set tabstop=4 shiftwidth=4 textwidth=140 softtabstop=4
 
-hi CursorColumn cterm=NONE ctermbg=black
-"ctermfg=white guibg=darkred guifg=white
+" cursor lines
 set cursorcolumn
+set cursorline
 
-" au VimEnter * RainbowParenthesesToggle
-" au Syntax * RainbowParenthesesLoadRound
-" au Syntax * RainbowParenthesesLoadSquare
-" au Syntax * RainbowParenthesesLoadBraces
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -228,7 +228,6 @@ au BufNewFile,BufRead,BufEnter *.cxx,*.h,*.cpp,*.hpp set omnifunc=omni#cpp#compl
 
 " recognize files as C++
 autocmd BufNewFile,BufReadPost *.h,*.cxx,*.cpp,*.hpp set filetype=cpp
-
 
 " C++11 Syntastic support
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
