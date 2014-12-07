@@ -240,4 +240,4 @@ let g:vim_markdown_folding_disabled=1
 " let g:vim_markdown_math=1 " for latex math
 
 " spell checking for certain file extensions
-autocmd BufRead,BufNewFile *.yml,*.md setlocal spell
+autocmd BufRead,BufNewFile *.txt,*.html,*.yml,*.md setlocal spell
