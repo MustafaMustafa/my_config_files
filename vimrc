@@ -24,7 +24,7 @@ Plugin 'Solarized' " color-scheme
 Plugin 'OmniCppComplete'
 " Plugin 'godlygeek/tabular' " for markdown
 Plugin 'plasticboy/vim-markdown' " for markdown
-Plugin 'spellcheck.vim'
+" Plugin 'spellcheck.vim'
 
 " Plugin 'ntpeters/vim-better-whitespace'
 
