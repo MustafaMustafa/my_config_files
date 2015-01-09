@@ -21,6 +21,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rainbow_parentheses.vim'
 Plugin 'Solarized' " color-scheme
+Plugin 'vimlatex'
 Plugin 'OmniCppComplete'
 " Plugin 'godlygeek/tabular' " for markdown
 Plugin 'plasticboy/vim-markdown' " for markdown
@@ -240,4 +241,4 @@ let g:vim_markdown_folding_disabled=1
 " let g:vim_markdown_math=1 " for latex math
 
 " spell checking for certain file extensions
-autocmd BufRead,BufNewFile *.txt,*.html,*.yml,*.md setlocal spell
+autocmd BufRead,BufNewFile *.tex,*.txt,*.html,*.yml,*.md setlocal spell
