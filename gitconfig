@@ -5,3 +5,5 @@
 	default = matching
 [core]
 	editor = vim
+[filter "trimWhitespace"]
+	clean = git-stripspace

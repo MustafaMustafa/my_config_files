@@ -25,7 +25,7 @@ Plugin 'vimlatex'
 Plugin 'OmniCppComplete'
 " Plugin 'godlygeek/tabular' " for markdown
 Plugin 'plasticboy/vim-markdown' " for markdown
-" Plugin 'spellcheck.vim'
+Plugin 'spellcheck.vim'
 
 " Plugin 'ntpeters/vim-better-whitespace'
 
@@ -231,7 +231,18 @@ au BufNewFile,BufRead,BufEnter *.cxx,*.h,*.cpp,*.hpp set omnifunc=omni#cpp#compl
 autocmd BufNewFile,BufReadPost *.h,*.cxx,*.cpp,*.hpp set filetype=cpp
 
 " C++11 Syntastic support
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_cpp_checkers = ['gcc', 'cppcheck']
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+let g:syntastic_cpp_include_dirs = ['/home/mustafa/research/StRoot','/usr/local/include/root']
+" let g:syntastic_debug = 1
 
 "map enter to escape
 :inoremap <CR> <Esc>
@@ -242,3 +253,6 @@ let g:vim_markdown_folding_disabled=1
 
 " spell checking for certain file extensions
 autocmd BufRead,BufNewFile *.tex,*.txt,*.html,*.yml,*.md setlocal spell
+
+"Remove all trailing whitespace by pressing F5
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>

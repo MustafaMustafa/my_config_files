@@ -101,24 +101,34 @@ fi
 
 alias mktd='mkdir ~/research/work/`date +'%Y-%m-%d'`'
 alias td='cd ~/research/work/`date +'%Y-%m-%d'`'
+alias dtd='rm -r ~/research/work/`date +'%Y-%m-%d'`'
+alias nmf='cd /home/mustafa/research/abstracts_and_talks/2015-qm-nmf'
 alias rcf='ssh -AXY mstftsm@rssh.rhic.bnl.gov'
-alias lab='ssh -AXY mustafa@star1.physics.purdue.edu'
 alias bnl='ssh -AXY mmustafa@ssh.bnl.gov'
 alias pdsf='ssh -AXY mustafa@pdsf.nersc.gov'
 alias pdsf6='ssh -AXY mustafa@pdsf6.nersc.gov'
 alias pdsf7='ssh -AXY mustafa@pdsf7.nersc.gov'
 alias pdsf8='ssh -AXY mustafa@pdsf8.nersc.gov'
+alias cori='ssh -AXY mustafa@cori.nersc.gov'
+alias edison='ssh -AXY mustafa@edison.nersc.gov'
 alias rm='rm -i'
 alias l='ls -lrht'
+alias ll='ls -lh'
 alias la='ls -lrta'
-alias ca='cd ~/research/npe/NPE/AuAu62GeV/analysis'
+alias an10='cd ~/research/npe/NPE/AuAu62GeV/analysis'
+alias an14='cd ~/research/auau200GeVRun14Ana/'
+alias hft='cd /home/mustafa/research/star-hftMcHitMover'
 rcf='mstftsm@rftpexp.rhic.bnl.gov'
 pdsf='mustafa@pdsf.nersc.gov'
+cori='mustafa@cori.nersc.gov'
+edison='mustafa@edison.nersc.gov'
 lab='mustafa@star1.physics.purdue.edu'
 
 export PATH=$PATH:/home/mustafa/MATLAB/R2013b/bin
+export ROOTSYS=/home/mustafa/research/root
+export PATH=$PATH:$ROOTSYS/bin
 
-CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/home/mustafa/Research/root/include
+CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/home/mustafa/Research/root/include:/home/mustafa/research/RooUnfold/src/
 export CPLUS_INCLUDE_PATH
 
 alias g11='g++ -W -Wall -Wextra -pedantic -std=c++11'
@@ -142,3 +152,12 @@ PS1='$(eval "echo ${MYPS}")$ '
 # create today's tasks list
 alias tskslst='cd /home/mustafa/personal-management/tasks-list'
 alias tsklst='cd /home/mustafa/personal-management/tasks-list; vim /home/mustafa/personal-management/tasks-list/`date +'%Y-%m-%d'`.md'
+
+alias tmux="TERM=screen-256color-bce tmux"
+
+# added by Anaconda2 2.4.1 installer
+export PATH="/home/mustafa/anaconda2/bin:$PATH"
+export PYTHONPATH="/home/mustafa/QSTK-0.2.8:$PYTHONPATH"
+
+alias graphlab='bash ~/graphlab.sh'
+alias robomongo='/home/mustafa/research/robomongo-0.9.0-rc9-linux-x86_64-0bb5668/bin/robomongo'
