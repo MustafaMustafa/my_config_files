@@ -128,7 +128,3 @@ else if (NF>3) print $1 "/" $2 "/.../" $NF;
 else print $1 "/.../" $NF; }
 else print $0;}'"'"')'
 PS1='$(eval "echo ${MYPS}")$ '
-
-export PATH=/home/mustafa/anaconda3/bin:$PATH
-
-alias robomongo='/home/mustafa/research/robomongo-0.9.0-rc9-linux-x86_64-0bb5668/bin/robomongo'
