@@ -5,7 +5,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-
+Plugin 'indentpython.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'repeat.vim'
 Plugin 'surround.vim'
@@ -25,7 +25,6 @@ Plugin 'vimlatex'
 Plugin 'OmniCppComplete'
 " Plugin 'godlygeek/tabular' " for markdown
 Plugin 'plasticboy/vim-markdown' " for markdown
-Plugin 'spellcheck.vim'
 
 " Plugin 'ntpeters/vim-better-whitespace'
 
@@ -235,13 +234,14 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_checkers = ['gcc', 'cppcheck']
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_cpp_include_dirs = ['/home/mustafa/research/StRoot','/usr/local/include/root']
+let g:syntastic_python_checkers = ['pylint']
 " let g:syntastic_debug = 1
 
 "map enter to escape
