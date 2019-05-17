@@ -1,3 +1,4 @@
+alias python=python3.7
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -104,15 +105,15 @@ alias td='cd ~/research/work/`date +'%Y-%m-%d'`'
 alias dtd='rm -r ~/research/work/`date +'%Y-%m-%d'`'
 alias rcf='ssh -AXY mstftsm@rssh.rhic.bnl.gov'
 alias pdsf='ssh -AXY mustafa@pdsf.nersc.gov'
-alias cori='ssh -AXY mustafa@cori.nersc.gov'
-alias edison='ssh -AXY mustafa@edison.nersc.gov'
-alias maeve='ssh -AXY mustafa@maeve.dhcp.lbl.gov'
+alias cori='ssh -AXY mustafa@cori.nersc.gov -i ~/.ssh/nersc.pub'
+alias edison='ssh -AXY mustafa@edison.nersc.gov -i ~/.ssh/nersc.pub'
+alias maeve='ssh -AXY mustafa@maeve.dhcp.lbl.gov -i ~/.ssh/id_rsa_maeve.pub'
 alias voltan='ssh -AXY mustafa@voltan.dhcp.lbl.gov'
 alias squirrel='ssh -AXY mustafa@squirrel.dhcp.lbl.gov'
 alias rm='rm -i'
 alias l='ls -lrht'
 alias tbm='ssh -L 9998:localhost:9998 mustafa@maeve.dhcp.lbl.gov'
-alias jnm='ssh -L 9999:localhost:9999 mustafa@maeve.dhcp.lbl.gov'
+alias jnm='ssh -L 9994:localhost:9994 mustafa@maeve.dhcp.lbl.gov'
 alias jlm='ssh -L 9995:localhost:9995 mustafa@maeve.dhcp.lbl.gov'
 alias tbv='ssh -L 9997:localhost:9997 mustafa@voltan.dhcp.lbl.gov'
 alias jnv='ssh -L 9996:localhost:9996 mustafa@voltan.dhcp.lbl.gov'
@@ -139,3 +140,6 @@ else if (NF>3) print $1 "/" $2 "/.../" $NF;
 else print $1 "/.../" $NF; }
 else print $0;}'"'"')'
 PS1='$(eval "echo ${MYPS}")$ '
+
+# added by Miniconda3 installer
+export PATH="/home/mustafa/miniconda3/bin:$PATH"
