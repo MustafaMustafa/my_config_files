@@ -104,23 +104,33 @@ alias td='cd ~/research/work/`date +'%Y-%m-%d'`'
 alias dtd='rm -r ~/research/work/`date +'%Y-%m-%d'`'
 alias rcf='ssh -AXY mstftsm@rssh.rhic.bnl.gov'
 alias pdsf='ssh -AXY mustafa@pdsf.nersc.gov'
-alias cori='ssh -AXY mustafa@cori.nersc.gov'
+alias cori='ssh -AXY mustafa@cori.nersc.gov -i ~/.ssh/nersc'
 alias edison='ssh -AXY mustafa@edison.nersc.gov'
-alias maeve='ssh -AXY mustafa@maeve.dhcp.lbl.gov'
-alias voltan='ssh -AXY mustafa@voltan.dhcp.lbl.gov'
-alias squirrel='ssh -AXY mustafa@squirrel.dhcp.lbl.gov'
+alias maeve='ssh -AXY mustafa@maeve.dhcp.lbl.gov -i ~/.ssh/id_rsa_maeve'
+alias voltan='ssh -AXY mustafa@voltan.dhcp.lbl.gov -i ~/.ssh/id_rsa_voltan'
+alias squirrel='ssh -AXY mustafa@squirrel.dhcp.lbl.gov -i ~/.ssh/id_squirrel'
 alias rm='rm -i'
 alias l='ls -lrht'
-alias tbm='ssh -L 9998:localhost:9998 mustafa@maeve.dhcp.lbl.gov'
-alias jnm='ssh -L 9999:localhost:9999 mustafa@maeve.dhcp.lbl.gov'
-alias jlm='ssh -L 9995:localhost:9995 mustafa@maeve.dhcp.lbl.gov'
+alias tbm='ssh -L 9998:localhost:9998 mustafa@maeve.dhcp.lbl.gov -i ~/.ssh/id_rsa_maeve'
+alias jnm='ssh -L 9994:localhost:9994 mustafa@maeve.dhcp.lbl.gov -i ~/.ssh/id_rsa_maeve'
+alias jlm='ssh -L 9995:localhost:9995 mustafa@maeve.dhcp.lbl.gov -i ~/.ssh/id_rsa_maeve'
 alias tbv='ssh -L 9997:localhost:9997 mustafa@voltan.dhcp.lbl.gov'
 alias jnv='ssh -L 9996:localhost:9996 mustafa@voltan.dhcp.lbl.gov'
+alias ip='~/.local/bin/ipython'
+
+tbc(){
+  ssh -L 6006:localhost:6006 mustafa@cori$1-224.nersc.gov -i ~/.ssh/nersc
+}
+
+dtn(){
+  ssh -AXY mustafa@dtn$1.nersc.gov -i ~/.ssh/nersc
+}
+
 rcf='mstftsm@rftpexp.rhic.bnl.gov'
 pdsf='mustafa@pdsf.nersc.gov'
-cori='mustafa@cori.nersc.gov'
+cori='-i ~/.ssh/nersc mustafa@cori.nersc.gov'
 edison='mustafa@edison.nersc.gov'
-maeve='mustafa@maeve.dhcp.lbl.gov'
+maeve='-i ~/.ssh/id_rsa_maeve mustafa@maeve.dhcp.lbl.gov'
 voltan='mustafa@voltan.dhcp.lbl.gov'
 squirrel='mustafa@squirrel.dhcp.lbl.gov'
 
@@ -139,3 +149,6 @@ else if (NF>3) print $1 "/" $2 "/.../" $NF;
 else print $1 "/.../" $NF; }
 else print $0;}'"'"')'
 PS1='$(eval "echo ${MYPS}")$ '
+
+alias python='python3'
+export PATH="/home/mustafa/.local/bin/:/home/mustafa/research/Montage/bin:$PATH"

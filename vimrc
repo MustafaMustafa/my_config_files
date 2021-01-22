@@ -26,6 +26,7 @@ Plugin 'vimlatex'
 Plugin 'OmniCppComplete'
 " Plugin 'godlygeek/tabular' " for markdown
 Plugin 'plasticboy/vim-markdown' " for markdown
+Plugin 'jupyter-vim/jupyter-vim'
 
 " Plugin 'ntpeters/vim-better-whitespace'
 
@@ -182,7 +183,7 @@ set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
 let g:Powerline_symbols = 'unicode'
 
 autocmd QuickFixCmdPost *grep* cwindow
-au FileType python  set tabstop=4 shiftwidth=4 textwidth=140 softtabstop=4
+au FileType python  set tabstop=2 shiftwidth=2 textwidth=140 softtabstop=2
 
 " cursor lines
 set cursorcolumn
@@ -248,6 +249,16 @@ let g:syntastic_python_checkers = ['pylint']
 "map enter to escape
 :inoremap <CR> <Esc>
 
+"map for splitting lines (ctrl+j)
+:nnoremap <NL> i<CR><ESC>
+
+"map hjkl to jkl;
+noremap ; l
+noremap l k
+noremap k j
+noremap j h
+
+
 "markdown highlight options
 let g:vim_markdown_folding_disabled=1
 " let g:vim_markdown_math=1 " for latex math
@@ -257,3 +268,5 @@ autocmd BufRead,BufNewFile *.tex,*.txt,*.html,*.yml,*.md setlocal spell
 
 "Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+let g:syntastic_tex_checkers = ['lacheck']
